@@ -17,6 +17,7 @@ class Scraper
   end
 
   def make_courses
+<<<<<<< HEAD
     get_courses.each do |post|
       course = Course.new
       course.title = post.css("h2").text
@@ -24,6 +25,16 @@ class Scraper
       course.description = post.css("p").text
     #  binding.pry
    end
+=======
+    get_courses.each do |course|
+      title = course.css('h2').text
+      schedule = course.css('em').text
+      description = course.css('p').text
+
+      Course.new(title, schedule, description)
+      binding.pry
+    end
+>>>>>>> 11322881c429b431454b131be49e0dbdcd57cbad
   end
 
 
@@ -35,8 +46,20 @@ class Scraper
         puts "  Schedule: #{course.schedule}"
         puts "  Description: #{course.description}"
       end
+<<<<<<< HEAD
      end
    end
 
 
 end
+=======
+    end
+
+
+
+  end
+
+end
+
+Scraper.new.get_page
+>>>>>>> 11322881c429b431454b131be49e0dbdcd57cbad
